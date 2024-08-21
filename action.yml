@@ -34,6 +34,9 @@ inputs:
   workdir:
     description: 'Working directory relative to the root directory.'
     default: '.'
+  file_find_pattern:
+    description: 'File find pattern for dupe-files'
+    default: '*.sql'
 runs:
   using: 'composite'
   steps:
@@ -54,6 +57,7 @@ runs:
         INPUT_FAIL_ON_ERROR: ${{ inputs.fail_on_error }}
         INPUT_REVIEWDOG_FLAGS: ${{ inputs.reviewdog_flags }}
         INPUT_WORKDIR: ${{ inputs.workdir }}
+        INPUT_FILE_FIND_PATTERN: ${{ inputs.file_find_pattern }}
 branding:
   icon: 'check-circle'
   color: 'blue'
